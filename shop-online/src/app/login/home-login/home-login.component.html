@@ -1,0 +1,10 @@
+<div class="container-fluid login">
+  <div class="form container">
+    <form class="bg-t" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <p class="h3 text-center">Đăng nhập</p>
+    <input type="text" placeholder="Username" formControlName="username">
+    <input type="password" placeholder="Password" formControlName="password">
+    <input type="submit" value="Sign In" class="submit">
+    </form>
+  </div>
+</div>
