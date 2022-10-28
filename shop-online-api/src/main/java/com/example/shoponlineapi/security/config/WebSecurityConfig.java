@@ -3,6 +3,7 @@ package com.example.shoponlineapi.security.config;
 import com.example.shoponlineapi.security.authentication.JwtAuthenticationEntryPoint;
 import com.example.shoponlineapi.security.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,6 +32,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AppConfig appConfig;
+
+    @Autowired
+//    private FacebookConnectionSignup facebookConnectionSignup;
+
+    @Value("${spring.social.facebook.appSecret}")
+    String appSecret;
+
+    @Value("${spring.social.facebook.appId}")
+    String appId;
 
     /**
      * @param auth
@@ -79,4 +89,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Add a filter to validate the tokens with every request
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
+    
 }

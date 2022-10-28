@@ -73,9 +73,9 @@ public class JwtAuthenticationController {
         AppUser appUser = this.appUserService.findAppUserByUserName(authenticationRequest.getUsername());
         Date date = new Date(System.currentTimeMillis());
 
-        if (date.toLocalDate().compareTo(appUser.getCreationDate().toLocalDate().plusDays(30)) >= 0) {
-            return new ResponseEntity<>("PasswordExpired", HttpStatus.UNAUTHORIZED);
-        }
+//        if (date.toLocalDate().compareTo(appUser.getCreationDate().toLocalDate().plusDays(30)) >= 0) {
+//            return new ResponseEntity<>("PasswordExpired", HttpStatus.UNAUTHORIZED);
+//        }
 
         List<String> grantList = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
