@@ -84,7 +84,7 @@ export class EditComponent implements OnInit {
     if(this.selectFileImg == null){
       if (this.productForm.valid) {
         this.productService.updateProduct(product).subscribe((data) => {
-          this.toastrService.success('Cập nhật', 'Thông báo!!!')
+          this.toastrService.success('Cập nhật', 'Thông báo!!!!')
           this.router.navigateByUrl('/home').then();
         });
       }
